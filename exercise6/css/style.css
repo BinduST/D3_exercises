@@ -1,0 +1,21 @@
+line {
+    stroke: black;
+}
+
+rect {
+  stroke: steelblue;
+  fill:none;
+  stroke-width:2px;
+}
+
+circle {
+    stroke: red;
+    fill:none;
+    stroke-width:2px;
+}
+
+.triangle {
+    stroke: green;
+    fill:none;
+    stroke-width:2px;
+}

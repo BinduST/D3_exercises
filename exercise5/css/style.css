@@ -1,0 +1,11 @@
+div {
+  text-align: center;
+  color: black;
+  font-size: 12px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  display:inline-block;
+  margin-left: 10px;
+}

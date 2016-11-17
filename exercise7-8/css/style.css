@@ -1,0 +1,12 @@
+.line, .sineLine {
+   fill:none;
+   stroke:steelblue;
+   stroke-width:2px;
+}
+
+
+circle{
+  r: 4px;
+  fill:white;
+  stroke:steelblue;
+}
