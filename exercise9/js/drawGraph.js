@@ -2,7 +2,7 @@ var points = [{x:0,y:5},{x:1,y:9},{x:2,y:7},{x:3,y:5},{x:4,y:3},{x:6,y:4},{x:7,y
 
 var interpolations = [
   {"d3Curve":d3.curveLinear,"curveTitle":"curveLinear"},
-  {"d3Curve":d3.curveLinear,"curveTitle":"curveLinear"},
+  {"d3Curve":d3.curveLinearClosed,"curveTitle":"curveLinearClosed"},
   {"d3Curve":d3.curveStep,"curveTitle":"curveStep"},
   {"d3Curve":d3.curveBasis,"curveTitle":"curveBasis"},
   {"d3Curve":d3.curveBundle,"curveTitle":"curveBundle"},
@@ -37,10 +37,11 @@ var yScale = d3.scaleLinear()
     .domain([0.0, 1.0])
     .range([INNERHEIGHT, 0]);
 
-
 var createGraph = function () {
+  var container = d3.select('body');
+
   for (curve of interpolations) {
-      var svg = d3.select('body').append('svg')
+      var svg = container.append('div').append('svg')
         .attr('height', HEIGHT)
         .attr('width', WIDTH);
 
@@ -92,8 +93,8 @@ var createGraph = function () {
         .attr('transform',translate(MARGIN,MARGIN));
 
       svg.append('text')
-        .attr('x', INNERWIDTH - MARGIN)
-        .attr('y', MARGIN)
+        .attr('x', '50%')
+        .attr('y', '10%')
         .text(curve.curveTitle);
     };
 }
