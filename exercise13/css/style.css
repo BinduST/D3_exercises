@@ -1,0 +1,15 @@
+.area{
+    fill: #b1cbe0;
+}
+
+.line{
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+circle{
+    r: 4px;
+    fill: white;
+    stroke: steelblue;
+}

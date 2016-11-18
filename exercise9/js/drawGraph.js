@@ -6,9 +6,7 @@ var interpolations = [
   {"d3Curve":d3.curveStep,"curveTitle":"curveStep"},
   {"d3Curve":d3.curveBasis,"curveTitle":"curveBasis"},
   {"d3Curve":d3.curveBundle,"curveTitle":"curveBundle"},
-  {"d3Curve":d3.curveCardinalClosed,"curveTitle":"curveCardinalClosed"},
-  {"d3Curve":d3.curveCardinal,"curveTitle":"curveCardinal"},
-  {"d3Curve":d3.curveMonotoneX,"curveTitle":"curveMonotoneX"}
+  {"d3Curve":d3.curveCardinalClosed,"curveTitle":"curveCardinalClosed"}
 ];
 
 var MARGIN = 30;
@@ -21,27 +19,18 @@ var translate = function (x,y) {
    return "translate("+x+","+y+")";
 }
 
-var xValues = d3.extent(points, function (p) {
-    return p.x;
-});
-
-var yValues = d3.extent(points, function (p) {
-    return p.y;
-});
-
 var xScale = d3.scaleLinear()
-    .domain([0.0, 1.0])
+    .domain([0, 1])
     .range([0, INNERWIDTH]);
 
 var yScale = d3.scaleLinear()
-    .domain([0.0, 1.0])
+    .domain([0, 1])
     .range([INNERHEIGHT, 0]);
 
 var createGraph = function () {
-  var container = d3.select('body');
 
   for (curve of interpolations) {
-      var svg = container.append('div').append('svg')
+      var svg = d3.select('body').append('div').append('svg')
         .attr('height', HEIGHT)
         .attr('width', WIDTH);
 
@@ -65,8 +54,8 @@ var createGraph = function () {
         .attr('transform',translate(MARGIN, MARGIN))
         .classed('sineLine',true);
 
-      var xAxis = d3.axisBottom(xScale);
-      var yAxis = d3.axisLeft(yScale);
+      var xAxis = d3.axisBottom(xScale).ticks(10,'s');
+      var yAxis = d3.axisLeft(yScale).ticks(10,'s');
 
       svg.append('g')
         .attr('transform',translate(MARGIN, INNERHEIGHT+MARGIN))
